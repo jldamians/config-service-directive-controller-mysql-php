@@ -8,7 +8,7 @@ myApp.controller('CtrlCrudList', function($scope, serviceCrud, $location) {
 
     function get(){
 	    serviceCrud.get().success(
-            function(data, status){
+            function(data, status, headers, config){
     	    	$scope.contacts = data;
                 $scope.isLoading = false ;
     	    }

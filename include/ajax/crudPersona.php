@@ -5,6 +5,16 @@
 
 	require_once '../bean/Bean_Persona.php';
 
+	/*
+	 * mysql_real_escape_string: Escapa caracteres especiales en el string
+	 */
+
+	/*$data    = json_decode(file_get_contents("php://input"));
+
+	$op = mysql_real_escape_string($data->op);
+	$upswd   = mysql_real_escape_string($data->pswd);
+	$uemail  = mysql_real_escape_string($data->email);*/
+
 	$objPersona = new ClsPersona() ;
 	$persona    = new Bean_Persona() ;
 

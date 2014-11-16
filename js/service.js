@@ -1,36 +1,33 @@
 var myApp = angular.module('myApp.service', []);
 
 myApp.service('serviceCrud', function($http) {
-    var url_    = 'include/ajax/crudPersona.php' ;
+    this.set = function(persona){
+        var url_    = 'include/ajax/setPersona.php' ;
+        var params_ = {'name': persona.name, 'dni': persona.dni} ;
 
+        return $http.post(url_, params_) ;
+    };
     this.get = function(){
-        var method_ = 'GET' ;
-        var params_ = {'op': 'list'} ;
+        var url = 'include/ajax/getPersona.php?callback=JSON_CALLBACK' ;
 
-        return $http({url: url_, method: method_, params: params_}) ;
+        return $http.jsonp(url) ;
     };
     this.get_by_id = function(id){
-        var method_ = 'GET' ;
-        var params_ = {'op': 'edit', 'id': id} ;
+        var url_    = 'include/ajax/getPersonaById.php' ;
+        var params_ = {'id': id} ;
 
-        return $http({url: url_, method: method_, params: params_}) ;
+        return $http.get(url_, {'params': params_}) ;
     };
     this.del_by_id = function(id){
-        var method_ = 'DELETE' ;
-        var params_ = {'op': 'delete', 'id': id} ;
+        var url_    = 'include/ajax/delPersonaById.php' ;
+        var params_ = {'id': id} ;
 
-        return $http({url: url_, method: method_, params: params_}) ;
-    };
-    this.set = function(persona){
-        var method_ = 'GET' ;
-        var params_ = {'op': 'insert', 'name': persona.name, 'dni': persona.dni} ;
-
-        return $http({url: url_, method: method_, params: params_}) ;
+        return $http.delete(url_, {'params': params_}) ;
     };
     this.upd = function(persona){
-        var method_ = 'GET' ;
-        var params_ = {'op': 'update', 'id': persona.id, 'name': persona.name, 'dni': persona.dni} ;
+        var url_    = 'include/ajax/updPersona.php' ;
+        var params_ = {'id': persona.id, 'name': persona.name, 'dni': persona.dni} ;
 
-        return $http({url: url_, method: method_, params: params_}) ;
+        return $http.put(url_, params_) ;
     };
 });

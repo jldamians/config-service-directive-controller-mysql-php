@@ -1,3 +1,61 @@
+section, div, span{
+	font-family: arial ;
+	margin: 0 ;
+	padding: 0 ;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+section{
+	padding: 20px;
+}
+
+section div{
+	margin: 10px;
+}
+
+span{
+	display: block;
+}
+
+span strong{
+	color: #716B6B;
+}
+
 .line{
 	display: inline-block;
+}
+
+li {
+	padding: 5px 0;
+	border-bottom: 1px solid #7C7C7C;
+	border-top: 1px solid #7C7C7C;
+	margin: 15px 0;
+}
+
+li:nth-child(2n+1){
+	list-style-image: url("../img/persona_vacio.png");
+	border-bottom-width: 2px;
+	border-top-width: 2px;
+}
+li:nth-child(2n){
+	list-style-image: url("../img/persona_lleno.png");
+	border-bottom-width: 1px;
+	border-top-width: 1px;
+}
+
+button{
+	border: 1px solid #7C7C7C;
+	padding: 5px 8px;
+	font-size: 15px;
+	cursor: pointer;
+	font-weight: bold;
+	color: #302A2A;
+}
+
+button:hover{
+	background-color: #FFF;
+	border: 2px solid #7C7C7C;
+	padding: 4px 7px;
 }
